@@ -29,7 +29,7 @@ A list of technologies/ features used within the project:
 6. Display an error message if the list cannot be loaded (e.g., no network).
 7. Instrumentation and unit tests are implemented. (Hilt DI used for instrumentation testing)
 8. ** Coin list entries restricted to 8 items, due to the restrictions over the limit of api calls. Please modify it using Constants.DISPLAY_LIST_ITEMS
-9. ** Instrumentation tests - 15. Unit tests - 17
+9. ** Instrumentation tests - 12 nos. Unit tests - 17 nos
 
 
 # Prerequisites

@@ -1,6 +1,8 @@
 package com.online.coinpaprika.data.api
 
-
+/**
+ * Used to handle API response
+ */
 
 sealed class ServiceResponse<out T>{
 

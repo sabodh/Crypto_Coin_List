@@ -43,7 +43,8 @@ class CoinDetailsViewModelTest {
         Dispatchers.setMain(UnconfinedTestDispatcher())
     }
 
-//    @Test
+    // this test run individually but failed during group running
+    @Test
     fun get_success_details_from_view_model() = runTest {
         val coinId = "bit-coin"
         val coinResponse = ServiceResponse.Success(CoinDetails.default)

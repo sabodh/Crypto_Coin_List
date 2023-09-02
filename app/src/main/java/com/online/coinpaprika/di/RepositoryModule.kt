@@ -10,9 +10,14 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
 
+/**
+ * Module used to provide the repository dependencies needed for hilt
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object RepositoryModule {
+
+    // Provide CoroutineDispatcher type
 
     @Provides
     @Singleton
@@ -20,6 +25,7 @@ object RepositoryModule {
         return Dispatchers.IO
     }
 
+    // Provide CoinRepositoryImpl instance
     @Provides
     @Singleton
     fun provideCoinRepository(

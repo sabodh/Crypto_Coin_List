@@ -2,7 +2,9 @@ package com.online.coinpaprika.utils
 
 import com.online.coinpaprika.data.model.CoinDetails
 import com.online.coinpaprika.data.model.CoinList
-
+/**
+ * Dummy data used for testing purpose
+ */
 object TestData {
 
     private val coinDetails_1 =

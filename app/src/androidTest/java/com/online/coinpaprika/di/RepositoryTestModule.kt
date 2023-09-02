@@ -13,6 +13,10 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
 
+/**
+ * Providing fake classes for instrument testing using hilt,
+ * it replaces original modules with fake objects mentioned in the app
+ */
 @Module
 @TestInstallIn(
     components = [SingletonComponent::class],
@@ -20,30 +24,34 @@ import javax.inject.Singleton
 )
 object RepositoryTestModule {
 
+    // Providing fake repository object
     @Provides
     @Singleton
     fun provideCoinRepository(dispatcher: CoroutineDispatcher): CoinRepository {
         return FakeCoinRepository(dispatcher)
     }
-
+    // Providing use cases with fake repository object
     @Provides
     fun provideCoinListUseCases(coinRepository: CoinRepository): CoinListUseCase {
         return CoinListUseCase(coinRepository)
     }
+    // Providing use cases with fake repository object
     @Provides
     fun provideCoinDetailsUseCases(coinRepository: CoinRepository): CoinDetailsUseCase {
         return CoinDetailsUseCase(coinRepository)
     }
-
+    // Providing view-model with fake use-case object
     @Provides
     fun provideCoinListViewModel(coinListUseCase: CoinListUseCase): CoinListViewModel {
         return CoinListViewModel(coinListUseCase)
     }
-
+    // Providing view-model with fake use-case object
     @Provides
     fun provideCoinDetailsViewModel(coinDetailsUseCase: CoinDetailsUseCase): CoinDetailsViewModel {
         return CoinDetailsViewModel(coinDetailsUseCase)
     }
+
+    // Providing CoroutineDispatcher object
     @Provides
     fun provideDispatcher(): CoroutineDispatcher {
         return Dispatchers.IO;

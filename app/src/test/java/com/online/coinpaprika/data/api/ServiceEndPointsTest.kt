@@ -14,6 +14,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.net.HttpURLConnection
 
+/**
+ * API testing with the help of mock web server
+ */
 @OptIn(ExperimentalCoroutinesApi::class)
 class ServiceEndPointsTest {
 

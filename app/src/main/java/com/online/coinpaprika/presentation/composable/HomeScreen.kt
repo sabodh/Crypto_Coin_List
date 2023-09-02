@@ -30,6 +30,7 @@ import kotlinx.coroutines.launch
 fun HomeScreen(
     navController: NavController
 ) {
+    // create view-model using hilt di
     val coinViewModel: CoinListViewModel = hiltViewModel()
     ShowCoinList(navController, coinViewModel)
 }

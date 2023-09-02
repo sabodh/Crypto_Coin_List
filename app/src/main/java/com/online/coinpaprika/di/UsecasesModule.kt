@@ -7,7 +7,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-
+/**
+ * Module used to provide the Usecases dependencies needed for hilt
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object UsecasesModule {

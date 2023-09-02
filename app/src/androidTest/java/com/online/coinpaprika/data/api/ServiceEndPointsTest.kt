@@ -18,6 +18,9 @@ import org.junit.Test
 import java.net.HttpURLConnection
 import javax.inject.Inject
 
+/**
+ * Used to test the api response with the help of Hilt and MockWebServer
+ */
 @OptIn(ExperimentalCoroutinesApi::class)
 @HiltAndroidTest
 class ServiceEndPointsTest {

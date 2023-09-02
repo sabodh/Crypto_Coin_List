@@ -13,6 +13,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
+/**
+ * Used to provide fake/ mock classes with the help of Hilt
+ */
 @Module
 @TestInstallIn(
     components = [SingletonComponent::class],
@@ -20,24 +23,32 @@ import java.util.concurrent.TimeUnit
 )
 object NetworkTestModule {
 
+    // Creating mock Retrofit instance using MockWebServer url
     @Provides
-    fun provideServiceEndPoints(url: HttpUrl,
-                                client: OkHttpClient): ServiceEndPoints {
+    fun provideServiceEndPoints(
+        url: HttpUrl,
+        client: OkHttpClient
+    ): ServiceEndPoints {
         return Retrofit.Builder()
             .client(client)
             .baseUrl(url)
             .addConverterFactory(GsonConverterFactory.create())
             .build().create(ServiceEndPoints::class.java)
     }
+
+    // providing the MockWebServer instance
     @Provides
     fun provideMockServer(): MockWebServer {
         return MockWebServer()
     }
+
+    // providing fake server url
     @Provides
-    fun providesURL(server: MockWebServer) : HttpUrl {
+    fun providesURL(server: MockWebServer): HttpUrl {
         return server.url("http://localhost:8080/")
     }
 
+    // providing fake OkHttpClient for building fake retrofit builder
     @Provides
     fun provideServiceClient(): OkHttpClient {
         return OkHttpClient.Builder()

@@ -12,13 +12,17 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+/**
+ * Module used to provide the dependencies needed for hilt
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
+    // provide OkHttpClient for Retrofit creation
     @Provides
     @Singleton
-    fun provideServiceEndPoints(client: OkHttpClient): ServiceEndPoints{
+    fun provideServiceEndPoints(client: OkHttpClient): ServiceEndPoints {
         return Retrofit.Builder()
             .client(client)
             .baseUrl(Constants.BASE_URL)
@@ -27,9 +31,10 @@ object NetworkModule {
             .create(ServiceEndPoints::class.java)
     }
 
+    // provide OkHttpClient for ServiceEndPoints creation
     @Provides
     @Singleton
-    fun provideServiceClient(): OkHttpClient{
+    fun provideServiceClient(): OkHttpClient {
         return OkHttpClient.Builder()
             .connectTimeout(Constants.HTTP_TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(Constants.HTTP_TIMEOUT, TimeUnit.SECONDS)

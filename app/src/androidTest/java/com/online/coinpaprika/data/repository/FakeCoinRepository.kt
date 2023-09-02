@@ -12,7 +12,9 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
 /**
- * Fake repository used to test the Hilt module.
+ * Fake repository used to test the repository using Hilt module.
+ * Its a fake class for the actual repository used in the app,
+ * the actual replaced with this fake in the hilt module.
  */
 class FakeCoinRepository (
     private val defaultDispatcher: CoroutineDispatcher = Dispatchers.IO

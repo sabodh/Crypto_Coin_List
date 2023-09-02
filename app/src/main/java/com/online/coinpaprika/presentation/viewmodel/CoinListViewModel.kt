@@ -12,6 +12,9 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * View-model used to get the coin list
+ */
 @HiltViewModel
 class CoinListViewModel @Inject constructor (
     private val coinListUseCase: CoinListUseCase

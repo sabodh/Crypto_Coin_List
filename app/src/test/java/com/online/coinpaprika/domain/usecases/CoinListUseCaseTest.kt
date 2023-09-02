@@ -14,6 +14,9 @@ import org.mockito.junit.MockitoJUnitRunner
 import kotlinx.coroutines.flow.single
 import org.junit.Assert
 
+/**
+ * Use-case testing with the help of mockito
+ */
 @RunWith(MockitoJUnitRunner::class)
 class CoinListUseCaseTest {
     @Mock

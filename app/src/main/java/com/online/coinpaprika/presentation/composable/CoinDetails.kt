@@ -32,6 +32,7 @@ fun CoinDetails(
     navController: NavController,
     coinId: String
 ) {
+    // create view-model using hilt di
     val coinViewModel: CoinDetailsViewModel = hiltViewModel()
     DetailedView(navController = navController, coinViewModel, coinId = coinId)
 

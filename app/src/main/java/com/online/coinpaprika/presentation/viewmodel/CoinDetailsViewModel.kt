@@ -14,6 +14,9 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * View-model used to get the coin details
+ */
 @HiltViewModel
 class CoinDetailsViewModel @Inject constructor  (
     private val coinDetailsUseCase: CoinDetailsUseCase

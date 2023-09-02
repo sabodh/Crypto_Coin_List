@@ -17,7 +17,9 @@ import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
 import retrofit2.Response
 
-
+/**
+ * API testing with the help of mockito, flow
+ */
 @OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(MockitoJUnitRunner::class)
 class CoinRepositoryImplTest {

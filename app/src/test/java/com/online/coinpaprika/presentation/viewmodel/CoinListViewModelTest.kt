@@ -1,4 +1,5 @@
 package com.online.coinpaprika.presentation.viewmodel
+
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.online.coinpaprika.data.api.ServiceResponse
 import com.online.coinpaprika.domain.usecases.CoinListUseCase
@@ -17,6 +18,9 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
 
+/**
+ * view-model testing with the help of mockito
+ */
 @OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(MockitoJUnitRunner::class)
 class CoinListViewModelTest {
@@ -27,6 +31,7 @@ class CoinListViewModelTest {
     @Mock
     lateinit var conListUseCase: CoinListUseCase
     private lateinit var viewModel: CoinListViewModel
+
     @OptIn(ExperimentalCoroutinesApi::class)
     @Before
     fun setUp() {
@@ -44,10 +49,12 @@ class CoinListViewModelTest {
         Assert.assertNotNull(viewModel.coinsState.value)
         Assert.assertEquals(coinListResponse, viewModel.coinsState.value)
     }
+
     @Test
     fun `get error from view-model`() = runTest {
         val unknownError = "Unknown error"
-        val coinListResponse = ServiceResponse.Error(ErrorCode.UNKNOWN_ERROR.statusCode, unknownError)
+        val coinListResponse =
+            ServiceResponse.Error(ErrorCode.UNKNOWN_ERROR.statusCode, unknownError)
         viewModel = CoinListViewModel(conListUseCase)
         Mockito.`when`(conListUseCase())
             .thenReturn(flowOf(coinListResponse))
@@ -55,6 +62,7 @@ class CoinListViewModelTest {
         Assert.assertNotNull(viewModel.coinsState.value)
         Assert.assertEquals(coinListResponse, viewModel.coinsState.value)
     }
+
     @After
     fun tearDown() {
         Dispatchers.resetMain()
