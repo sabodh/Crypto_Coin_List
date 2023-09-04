@@ -1,4 +1,4 @@
-# coin_list - Android Application - Kotlin
+# Crypto Coin List - Android Application - Kotlin
 Sample android app using mvvm clean architecture with Hilt DI
 
 ## Architecture
