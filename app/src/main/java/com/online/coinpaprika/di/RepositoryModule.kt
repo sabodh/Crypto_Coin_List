@@ -27,7 +27,6 @@ object RepositoryModule {
 
     // Provide CoinRepositoryImpl instance
     @Provides
-    @Singleton
     fun provideCoinRepository(
         serviceEndPoints: ServiceEndPoints,
         dispatcher: CoroutineDispatcher
